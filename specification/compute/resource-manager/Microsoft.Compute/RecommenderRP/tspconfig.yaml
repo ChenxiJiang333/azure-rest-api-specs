@@ -19,8 +19,8 @@ options:
     namespace: "Azure.ResourceManager.ComputeRecommender"
     emitter-output-dir: "{output-dir}/{service-dir}/{namespace}"
   "@azure-tools/typespec-python":
-    package-dir: "azure-mgmt-computerecommender"
-    namespace: "azure.mgmt.computerecommender"
+    package-dir: "azure-mgmt-compute-recommender"
+    namespace: "azure.mgmt.compute.recommender"
     generate-test: true
     generate-sample: true
     flavor: "azure"
