@@ -4,5 +4,11 @@ import "./main.tsp";
 using Azure.ClientGenerator.Core;
 using Microsoft.Cache;
 
-@@clientName(Microsoft.Cache, "RedisEnterpriseManagementClient", "javascript, python");
-@@clientName(PrivateEndpointConnection, "PrivateEndpointConnectionRedisenterpriseResource", "python");
+@@clientName(Microsoft.Cache,
+  "RedisEnterpriseManagementClient",
+  "javascript, python"
+);
+@@clientName(PrivateEndpointConnection,
+  "PrivateEndpointConnectionRedisenterpriseResource",
+  "python"
+);
