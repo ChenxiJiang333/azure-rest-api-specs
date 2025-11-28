@@ -1,5 +1,6 @@
 import "./main.tsp";
 import "@azure-tools/typespec-client-generator-core";
+import "@azure-tools/typespec-azure-resource-manager";
 
 using Azure.ClientGenerator.Core;
 using Microsoft.CostManagement;
@@ -31,3 +32,9 @@ using Microsoft.CostManagement;
 @@clientName(ScheduledAction.eTag, "etag", "java");
 @@clientName(Export.eTag, "etag", "java");
 @@clientName(Alert.eTag, "etag", "java");
+
+@@clientName(Microsoft.CostManagement, "CostManagementClient", "python");
+@@clientName(Azure.ResourceManager.CommonTypes.ErrorResponse,
+  "ArmErrorResponse",
+  "python"
+);
