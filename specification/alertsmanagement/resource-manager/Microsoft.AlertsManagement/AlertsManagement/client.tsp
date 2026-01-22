@@ -28,6 +28,38 @@ model AlertsClientOptions {
 #suppress "@azure-tools/typespec-azure-core/casing-style" "customization"
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+op AlertsChangeStateCustomized(
+  ...Azure.ResourceManager.CommonTypes.ApiVersionParameter,
+
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  @path
+  scope: string,
+
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  @path
+  providerNamespace: "Microsoft.AlertsManagement",
+
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  @path
+  alertId: string,
+
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  @query("newState")
+  newState: AlertState,
+
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  @body
+  comment: Comments,
+): Alert;
+
+@@override(AlertOperationGroup.changeState,
+  AlertsChangeStateCustomized,
+  "python"
+);
+
+#suppress "@azure-tools/typespec-azure-core/casing-style" "customization"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
 op AlertsChangeStateTenantCustomized(
   ...Azure.ResourceManager.CommonTypes.ApiVersionParameter,
 
@@ -46,7 +78,6 @@ op AlertsChangeStateTenantCustomized(
   #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
   @body
   comment: Comments,
-
 ): Alert;
 
 @@override(Alerts.changeStateTenant,
