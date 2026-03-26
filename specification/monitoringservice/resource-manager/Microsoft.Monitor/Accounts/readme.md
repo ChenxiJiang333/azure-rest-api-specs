@@ -85,6 +85,15 @@ See configuration in [readme.go.md](./readme.go.md)
 
 See configuration in [readme.java.md](./readme.java.md)
 
+## Directive
+
+``` yaml
+directive:
+  - rename-model:
+      from: Origin
+      to: IssueOrigin
+```
+
 ## Suppression
 
 ``` yaml
