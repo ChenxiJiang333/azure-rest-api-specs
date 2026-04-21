@@ -262,9 +262,7 @@ model AccessRulePropertiesSubscriptionsItem {
 @@clientName(AlertSeverity.`3`, "THREE", "python");
 @@clientName(AlertSeverity.`4`, "FOUR", "python");
 
-@@clientLocation(ServiceDiagnosticSettingsResources.get,
-  "DiagnosticSettings"
-);
+@@clientLocation(ServiceDiagnosticSettingsResources.get, "DiagnosticSettings");
 @@clientLocation(ServiceDiagnosticSettingsResources.createOrUpdate,
   "DiagnosticSettings"
 );
@@ -272,23 +270,21 @@ model AccessRulePropertiesSubscriptionsItem {
   "DiagnosticSettings"
 );
 
+// Override parameter order to match swagger SDK
+// PrivateLinkScopeOperationStatusOperationGroup.get: put asyncOperationId before resourceGroupName
 #suppress "@azure-tools/typespec-azure-core/casing-style" "customization"
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
 op PrivateLinkScopeOperationStatusGetCustomized(
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
-  ...Foundations.ApiVersionParameter,
-
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
-  ...Foundations.SubscriptionIdParameter,
+  ...ApiVersionParameter,
+  ...SubscriptionIdParameter,
 
   /** The operation Id. */
   @path
   asyncOperationId: string,
 
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
-  ...Foundations.ResourceGroupParameter,
-): ArmResponse<OperationStatus> | ErrorResponse;
+  ...ResourceGroupParameter,
+): ArmResponse<OperationStatus> | Azure.ResourceManager.ErrorResponse;
 
 @@override(
   PrivateLinkScopeOperationStatusOperationGroup.get,
@@ -301,11 +297,8 @@ op PrivateLinkScopeOperationStatusGetCustomized(
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
 op MetricsListAtSubscriptionScopePostCustomized(
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
-  ...Foundations.ApiVersionParameter,
-
-  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
-  ...Foundations.SubscriptionIdParameter,
+  ...ApiVersionParameter,
+  ...SubscriptionIdParameter,
 
   /** The region where the metrics you want reside. */
   @query("region")
