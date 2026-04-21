@@ -294,8 +294,7 @@ op PrivateLinkScopeOperationStatusGetCustomized(
   ...ResourceGroupParameter,
 ): ArmResponse<OperationStatus> | Azure.ResourceManager.ErrorResponse;
 
-@@override(
-  PrivateLinkScopeOperationStatusOperationGroup.get,
+@@override(PrivateLinkScopeOperationStatusOperationGroup.get,
   PrivateLinkScopeOperationStatusGetCustomized,
   "python"
 );
@@ -367,8 +366,7 @@ op MetricsListAtSubscriptionScopePostCustomized(
   body?: SubscriptionScopeMetricsRequestBodyParameters,
 ): Microsoft.Metrics.Response | ErrorContract;
 
-@@override(
-  MetricsOperationGroup.listAtSubscriptionScopePost,
+@@override(MetricsOperationGroup.listAtSubscriptionScopePost,
   MetricsListAtSubscriptionScopePostCustomized,
   "python"
 );
