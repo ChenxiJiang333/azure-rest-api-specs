@@ -18,10 +18,14 @@ import "./Common/main.tsp";
 
 using Azure.ClientGenerator.Core;
 using TypeSpec.Versioning;
+using TypeSpec.Http;
+using TypeSpec.Rest;
 using Microsoft.Insights;
 using Microsoft.ScheduledQueryRule;
 using Microsoft.AutoScale;
 using Microsoft.Common;
+using Microsoft.PrivateLinkScopes;
+using Microsoft.Metrics;
 using Microsoft.ServiceDiagnosticsSettings;
 
 @client({
@@ -263,16 +267,19 @@ model AccessRulePropertiesSubscriptionsItem {
 @@clientName(AlertSeverity.`3`, "THREE", "python");
 @@clientName(AlertSeverity.`4`, "FOUR", "python");
 
-@@clientLocation(ServiceDiagnosticSettingsResources.get, "DiagnosticSettings");
+@@clientLocation(ServiceDiagnosticSettingsResources.get,
+  "DiagnosticSettings",
+  "python"
+);
 @@clientLocation(ServiceDiagnosticSettingsResources.createOrUpdate,
-  "DiagnosticSettings"
+  "DiagnosticSettings",
+  "python"
 );
 @@clientLocation(ServiceDiagnosticSettingsResources.update,
-  "DiagnosticSettings"
+  "DiagnosticSettings",
+  "python"
 );
 
-// Override parameter order to match swagger SDK
-// PrivateLinkScopeOperationStatusOperationGroup.get: put asyncOperationId before resourceGroupName
 #suppress "@azure-tools/typespec-azure-core/casing-style" "customization"
 #suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
 #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
