@@ -22,6 +22,7 @@ using Microsoft.Insights;
 using Microsoft.ScheduledQueryRule;
 using Microsoft.AutoScale;
 using Microsoft.Common;
+using Microsoft.ServiceDiagnosticsSettings;
 
 @client({
   name: "CombineClient",
