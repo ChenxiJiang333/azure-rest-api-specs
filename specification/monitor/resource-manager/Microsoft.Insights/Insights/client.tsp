@@ -1,5 +1,5 @@
 import "@azure-tools/typespec-client-generator-core";
-import "@azure-tools/typespec-client-generator-core";
+import "@azure-tools/typespec-azure-resource-manager";
 import "./DataCollection/main.tsp";
 import "./PrivateLinkScopes/main.tsp";
 import "./AutoScale/main.tsp";
@@ -17,6 +17,7 @@ import "./NetworkSecurityPerimeter/main.tsp";
 import "./Common/main.tsp";
 
 using Azure.ClientGenerator.Core;
+using Azure.ResourceManager;
 using TypeSpec.Versioning;
 using TypeSpec.Http;
 using TypeSpec.Rest;
@@ -60,15 +61,15 @@ namespace Microsoft.InsightsCombinedClient;
 );
 
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "list should be pageable"
-@@Legacy.markAsPageable(Microsoft.PrivateLinkScopes.PrivateEndpointConnections.listByPrivateLinkScope,
+@@Azure.ClientGenerator.Core.Legacy.markAsPageable(Microsoft.PrivateLinkScopes.PrivateEndpointConnections.listByPrivateLinkScope,
   "java"
 );
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "list should be pageable"
-@@Legacy.markAsPageable(Microsoft.MetricAlert.MetricAlertResources.list,
+@@Azure.ClientGenerator.Core.Legacy.markAsPageable(Microsoft.MetricAlert.MetricAlertResources.list,
   "java"
 );
 #suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "list should be pageable"
-@@Legacy.markAsPageable(Microsoft.MetricAlert.MetricAlertResources.listByName,
+@@Azure.ClientGenerator.Core.Legacy.markAsPageable(Microsoft.MetricAlert.MetricAlertResources.listByName,
   "java"
 );
 
@@ -292,81 +293,11 @@ op PrivateLinkScopeOperationStatusGetCustomized(
   asyncOperationId: string,
 
   ...ResourceGroupParameter,
-): ArmResponse<OperationStatus> | Azure.ResourceManager.ErrorResponse;
+): Azure.ResourceManager.ArmResponse<OperationStatus> | Azure.ResourceManager.ErrorResponse;
 
 @@override(PrivateLinkScopeOperationStatusOperationGroup.get,
   PrivateLinkScopeOperationStatusGetCustomized,
   "python"
 );
 
-// MetricsOperationGroup.listAtSubscriptionScopePost: move body after query params
-#suppress "@azure-tools/typespec-azure-core/casing-style" "customization"
-#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
-#suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
-op MetricsListAtSubscriptionScopePostCustomized(
-  ...ApiVersionParameter,
-  ...SubscriptionIdParameter,
-
-  /** The region where the metrics you want reside. */
-  @query("region")
-  region: string,
-
-  /** The timespan of the query. */
-  @query("timespan")
-  timespan?: string,
-
-  /** The interval (i.e. timegrain) of the query in ISO 8601 duration format. */
-  @query("interval")
-  interval?: string,
-
-  /** The names of the metrics (comma separated) to retrieve. */
-  @query("metricnames")
-  metricnames?: string,
-
-  /** The list of aggregation types (comma separated) to retrieve. */
-  @query("aggregation")
-  aggregation?: string,
-
-  /** The maximum number of records to retrieve per resource ID in the request. */
-  @query("top")
-  top?: int32,
-
-  /** The aggregation to use for sorting results and the direction of the sort. */
-  @query("orderby")
-  orderby?: string,
-
-  /** The $filter is used to reduce the set of metric data returned. */
-  @query("$filter")
-  $filter?: string,
-
-  /** Reduces the set of data collected. */
-  @query("resultType")
-  resultType?: MetricResultType,
-
-  /** Metric namespace where the metrics you want reside. */
-  @query("metricnamespace")
-  metricnamespace?: string,
-
-  /** When set to true, if the timespan passed in is not supported by this metric, the API will return the result using the closest supported timespan. */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "match swagger"
-  @query("AutoAdjustTimegrain")
-  AutoAdjustTimegrain?: boolean,
-
-  /** When set to false, invalid filter parameter values will be ignored. */
-  #suppress "@azure-tools/typespec-azure-core/casing-style" "match swagger"
-  @query("ValidateDimensions")
-  ValidateDimensions?: boolean,
-
-  /** Dimension name(s) to rollup results by. */
-  @query("rollupby")
-  rollupby?: string,
-
-  /** The request body. */
-  @body
-  body?: SubscriptionScopeMetricsRequestBodyParameters,
-): Microsoft.Metrics.Response | ErrorContract;
-
-@@override(MetricsOperationGroup.listAtSubscriptionScopePost,
-  MetricsListAtSubscriptionScopePostCustomized,
-  "python"
-);
+// MetricsOperationGroup.listAtSubscriptionScopePost: override removed (ArmProviderActionSync template mismatch)
