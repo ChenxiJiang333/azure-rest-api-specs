@@ -261,3 +261,113 @@ model AccessRulePropertiesSubscriptionsItem {
 @@clientName(AlertSeverity.`2`, "TWO", "python");
 @@clientName(AlertSeverity.`3`, "THREE", "python");
 @@clientName(AlertSeverity.`4`, "FOUR", "python");
+
+@@clientLocation(ServiceDiagnosticSettingsResources.get,
+  "DiagnosticSettings"
+);
+@@clientLocation(ServiceDiagnosticSettingsResources.createOrUpdate,
+  "DiagnosticSettings"
+);
+@@clientLocation(ServiceDiagnosticSettingsResources.update,
+  "DiagnosticSettings"
+);
+
+#suppress "@azure-tools/typespec-azure-core/casing-style" "customization"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+op PrivateLinkScopeOperationStatusGetCustomized(
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  ...Foundations.ApiVersionParameter,
+
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  ...Foundations.SubscriptionIdParameter,
+
+  /** The operation Id. */
+  @path
+  asyncOperationId: string,
+
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  ...Foundations.ResourceGroupParameter,
+): ArmResponse<OperationStatus> | ErrorResponse;
+
+@@override(
+  PrivateLinkScopeOperationStatusOperationGroup.get,
+  PrivateLinkScopeOperationStatusGetCustomized,
+  "python"
+);
+
+// MetricsOperationGroup.listAtSubscriptionScopePost: move body after query params
+#suppress "@azure-tools/typespec-azure-core/casing-style" "customization"
+#suppress "@azure-tools/typespec-azure-resource-manager/arm-resource-operation" "customization"
+#suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+op MetricsListAtSubscriptionScopePostCustomized(
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  ...Foundations.ApiVersionParameter,
+
+  #suppress "@azure-tools/typespec-azure-core/documentation-required" "override"
+  ...Foundations.SubscriptionIdParameter,
+
+  /** The region where the metrics you want reside. */
+  @query("region")
+  region: string,
+
+  /** The timespan of the query. */
+  @query("timespan")
+  timespan?: string,
+
+  /** The interval (i.e. timegrain) of the query in ISO 8601 duration format. */
+  @query("interval")
+  interval?: string,
+
+  /** The names of the metrics (comma separated) to retrieve. */
+  @query("metricnames")
+  metricnames?: string,
+
+  /** The list of aggregation types (comma separated) to retrieve. */
+  @query("aggregation")
+  aggregation?: string,
+
+  /** The maximum number of records to retrieve per resource ID in the request. */
+  @query("top")
+  top?: int32,
+
+  /** The aggregation to use for sorting results and the direction of the sort. */
+  @query("orderby")
+  orderby?: string,
+
+  /** The $filter is used to reduce the set of metric data returned. */
+  @query("$filter")
+  $filter?: string,
+
+  /** Reduces the set of data collected. */
+  @query("resultType")
+  resultType?: MetricResultType,
+
+  /** Metric namespace where the metrics you want reside. */
+  @query("metricnamespace")
+  metricnamespace?: string,
+
+  /** When set to true, if the timespan passed in is not supported by this metric, the API will return the result using the closest supported timespan. */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "match swagger"
+  @query("AutoAdjustTimegrain")
+  AutoAdjustTimegrain?: boolean,
+
+  /** When set to false, invalid filter parameter values will be ignored. */
+  #suppress "@azure-tools/typespec-azure-core/casing-style" "match swagger"
+  @query("ValidateDimensions")
+  ValidateDimensions?: boolean,
+
+  /** Dimension name(s) to rollup results by. */
+  @query("rollupby")
+  rollupby?: string,
+
+  /** The request body. */
+  @body
+  body?: SubscriptionScopeMetricsRequestBodyParameters,
+): Microsoft.Metrics.Response | ErrorContract;
+
+@@override(
+  MetricsOperationGroup.listAtSubscriptionScopePost,
+  MetricsListAtSubscriptionScopePostCustomized,
+  "python"
+);
