@@ -7,6 +7,12 @@ using Microsoft.CloudHealth;
 
 @@clientName(Microsoft.CloudHealth, "CloudHealthMgmtClient", "python");
 
+// Python - Mitigate enum naming breaking changes for SignalOperator
+@@clientName(SignalOperator.LessThan, "LowerThan", "python");
+@@clientName(SignalOperator.LessThanOrEqual, "LowerOrEquals", "python");
+@@clientName(SignalOperator.GreaterThanOrEqual, "GreaterOrEquals", "python");
+@@clientName(SignalOperator.Equal, "Equals", "python");
+
 // CSharp
 @@clientName(AuthenticationSetting,
   "HealthModelAuthenticationSetting",
