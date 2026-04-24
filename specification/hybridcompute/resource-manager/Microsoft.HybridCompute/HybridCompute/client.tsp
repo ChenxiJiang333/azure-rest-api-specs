@@ -6,7 +6,7 @@ using Microsoft.HybridCompute;
 
 @@clientName(Microsoft.HybridCompute,
   "HybridComputeManagementClient",
-  "javascript"
+  "javascript,python"
 );
 
 @@alternateType(ServiceExtension.serviceExtensionType, string, "go");
@@ -34,9 +34,27 @@ union CustomPublicNetworkAccessType {
 }
 @@alternateType(PublicNetworkAccessType,
   CustomPublicNetworkAccessType,
-  "javascript"
+  "javascript,python"
 );
 @@clientName(CustomPublicNetworkAccessType,
   "PublicNetworkAccessType",
-  "javascript"
+  "javascript,python"
+);
+
+@@clientName(VMGuestPatchClassification_Windows,
+  "VMGuestPatchClassificationWindows",
+  "python"
+);
+@@clientName(VMGuestPatchClassification_Linux,
+  "VMGuestPatchClassificationLinux",
+  "python"
+);
+
+#suppress "@azure-tools/typespec-azure-core/no-legacy-usage" "To mitigate breaking change for legacy Python SDK"
+@@Legacy.clientDefaultValue(LicenseProfileNameAlias.licenseProfileName,
+  "default",
+  "python"
+);
+@@Azure.ClientGenerator.Core.alternateType(LicenseProfileNameAlias.licenseProfileName,
+  "default"
 );
