@@ -1545,3 +1545,109 @@ op attestationsListForResource(
   attestationsListForResource,
   "!java"
 );
+
+// PolicyEventsOperationGroup
+@@clientLocation(PolicyEventsOperationGroup.listQueryResultsForPolicySetDefinition::parameters.subscriptionId,
+  PolicyEventsOperationGroup.listQueryResultsForPolicySetDefinition,
+  "python"
+);
+@@clientLocation(PolicyEventsOperationGroup.listQueryResultsForPolicyDefinition::parameters.subscriptionId,
+  PolicyEventsOperationGroup.listQueryResultsForPolicyDefinition,
+  "python"
+);
+@@clientLocation(PolicyEventsOperationGroup.listQueryResultsForSubscriptionLevelPolicyAssignment::parameters.subscriptionId,
+  PolicyEventsOperationGroup.listQueryResultsForSubscriptionLevelPolicyAssignment,
+  "python"
+);
+@@clientLocation(PolicyEventsOperationGroup.listQueryResultsForResourceGroupLevelPolicyAssignment::parameters.subscriptionId,
+  PolicyEventsOperationGroup.listQueryResultsForResourceGroupLevelPolicyAssignment,
+  "python"
+);
+@@clientLocation(PolicyEventsOperationGroup.listQueryResultsForSubscription::parameters.subscriptionId,
+  PolicyEventsOperationGroup.listQueryResultsForSubscription,
+  "python"
+);
+@@clientLocation(PolicyEventsOperationGroup.listQueryResultsForResourceGroup::parameters.subscriptionId,
+  PolicyEventsOperationGroup.listQueryResultsForResourceGroup,
+  "python"
+);
+
+// PolicyStatesOperationGroup
+@@clientLocation(PolicyStatesOperationGroup.listQueryResultsForPolicySetDefinition::parameters.subscriptionId,
+  PolicyStatesOperationGroup.listQueryResultsForPolicySetDefinition,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.summarizeForPolicySetDefinition::parameters.subscriptionId,
+  PolicyStatesOperationGroup.summarizeForPolicySetDefinition,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.listQueryResultsForPolicyDefinition::parameters.subscriptionId,
+  PolicyStatesOperationGroup.listQueryResultsForPolicyDefinition,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.summarizeForPolicyDefinition::parameters.subscriptionId,
+  PolicyStatesOperationGroup.summarizeForPolicyDefinition,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.listQueryResultsForSubscriptionLevelPolicyAssignment::parameters.subscriptionId,
+  PolicyStatesOperationGroup.listQueryResultsForSubscriptionLevelPolicyAssignment,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.summarizeForSubscriptionLevelPolicyAssignment::parameters.subscriptionId,
+  PolicyStatesOperationGroup.summarizeForSubscriptionLevelPolicyAssignment,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.listQueryResultsForResourceGroupLevelPolicyAssignment::parameters.subscriptionId,
+  PolicyStatesOperationGroup.listQueryResultsForResourceGroupLevelPolicyAssignment,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.summarizeForResourceGroupLevelPolicyAssignment::parameters.subscriptionId,
+  PolicyStatesOperationGroup.summarizeForResourceGroupLevelPolicyAssignment,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.listQueryResultsForSubscription::parameters.subscriptionId,
+  PolicyStatesOperationGroup.listQueryResultsForSubscription,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.summarizeForSubscription::parameters.subscriptionId,
+  PolicyStatesOperationGroup.summarizeForSubscription,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.listQueryResultsForResourceGroup::parameters.subscriptionId,
+  PolicyStatesOperationGroup.listQueryResultsForResourceGroup,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.summarizeForResourceGroup::parameters.subscriptionId,
+  PolicyStatesOperationGroup.summarizeForResourceGroup,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.triggerSubscriptionEvaluation::parameters.subscriptionId,
+  PolicyStatesOperationGroup.triggerSubscriptionEvaluation,
+  "python"
+);
+@@clientLocation(PolicyStatesOperationGroup.triggerResourceGroupEvaluation::parameters.subscriptionId,
+  PolicyStatesOperationGroup.triggerResourceGroupEvaluation,
+  "python"
+);
+
+// ComponentPolicyStatesOperationGroup
+@@clientLocation(ComponentPolicyStatesOperationGroup.listQueryResultsForPolicyDefinition::parameters.subscriptionId,
+  ComponentPolicyStatesOperationGroup.listQueryResultsForPolicyDefinition,
+  "python"
+);
+@@clientLocation(ComponentPolicyStatesOperationGroup.listQueryResultsForSubscriptionLevelPolicyAssignment::parameters.subscriptionId,
+  ComponentPolicyStatesOperationGroup.listQueryResultsForSubscriptionLevelPolicyAssignment,
+  "python"
+);
+@@clientLocation(ComponentPolicyStatesOperationGroup.listQueryResultsForResourceGroupLevelPolicyAssignment::parameters.subscriptionId,
+  ComponentPolicyStatesOperationGroup.listQueryResultsForResourceGroupLevelPolicyAssignment,
+  "python"
+);
+@@clientLocation(ComponentPolicyStatesOperationGroup.listQueryResultsForSubscription::parameters.subscriptionId,
+  ComponentPolicyStatesOperationGroup.listQueryResultsForSubscription,
+  "python"
+);
+@@clientLocation(ComponentPolicyStatesOperationGroup.listQueryResultsForResourceGroup::parameters.subscriptionId,
+  ComponentPolicyStatesOperationGroup.listQueryResultsForResourceGroup,
+  "python"
+);
